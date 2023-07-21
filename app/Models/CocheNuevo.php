@@ -9,5 +9,5 @@ class CocheNuevo extends Model
 {
     use HasFactory;
     protected $table = "CocheNuevo";
-    protected $fillabel=['eliminado','matricula','unidades'];
+    protected $fillable=['eliminado','matricula','unidades'];
 }

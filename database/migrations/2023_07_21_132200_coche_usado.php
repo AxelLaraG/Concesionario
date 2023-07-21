@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+        Schema::create('CocheUsado', function (Blueprint $table) {
+            $table->decimal('eliminado', 1, 0)->default(0);
+            $table->integer('kilometraje',11);
+            $table->string('matricula',7);
+            $table->foreign('matricula')->references('matricula')->on('Coche');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('CocheUsado');
     }
 };

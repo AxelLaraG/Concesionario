@@ -27,9 +27,10 @@ class coche_Controller extends Controller
         $coche = Coche::where('matricula', $matricula)->first();
         return view('Coche.read')->with('coche', $coche);
     }
-    public function edit(string $id)
+    public function edit(string $matricula)
     {
-        //
+        $coch = Coche::where('matricula', $matricula)->first();
+        return view('Coche.edit')->with('coche',$coch);
     }
     public function update(Request $request, string $matricula)
     {
@@ -41,7 +42,7 @@ class coche_Controller extends Controller
     public function destroy(string $matricula)
     {
         $coche = Coche::where('matricula', $matricula)->first();
-        $coche->update(['eliminado' => 1]);
+        $coche::updateOrCreate(['matricula' => $matricula], ['eliminado' => 1]);
         return redirect('/Coche');
     }
 }

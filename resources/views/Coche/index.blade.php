@@ -29,7 +29,7 @@
                 <td>
                     <a href="{!! 'Coche/' . $coch->matricula !!}">Detalles</a>
                     <a href="{!! 'Coche/' . $coch->matricula . '/edit' !!}">Editar</a>
-                    {!! Form::open(['method' => 'delete', 'url' => 'Coche/' . $coch->matricula]) !!}
+                    {!! Form::open(['method' => 'DELETE', 'url' => 'Coche/' . $coch->matricula]) !!}
                     {!! Form::submit('Eliminar') !!}
                     {!! Form::close() !!}
                 </td>
