@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CocheUsado extends Model
 {
     use HasFactory;
+    protected $table='CocheUsado';
+    protected $fillabel=['eliminado','kilometraje','matricula'];
 }

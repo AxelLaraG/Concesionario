@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <a href="InsertarCoche">Insertar Coche</a>
+    <h1>Lista de Coches</h1>
+    <a href="Coche/create">Insertar Coche</a>
     <table>
         <tr>
             <th>Matricula</th>

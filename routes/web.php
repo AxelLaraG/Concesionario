@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\coche_controller;
+use App\Http\Controllers\coche_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,7 @@ use App\Http\Controllers\coche_controller;
 |
 */
 
-Route::resource('Coche', coche_controller::class);
+Route::resource('Coche', coche_Controller::class);
 
 Route::get('/', function () {
     return view('welcome');
