@@ -18,7 +18,9 @@ class coche_Controller extends Controller
     }
     public function store(Request $request)
     {
-        //
+        $datos = $request->except('_token');
+        Coche::create($datos);
+        return redirect('/Coche');
     }
     public function show(string $matricula)
     {

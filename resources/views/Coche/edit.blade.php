@@ -12,7 +12,7 @@
     <h1>Editar Coche</h1>
     {!! Form::open(['method' => 'PATCH', 'url' => 'Coche/' . $coche->matricula]) !!}
     {!! Form::label('color', 'Color del coche') !!}
-    {!! Form::text('color', $coche->color , ['placegholder' => 'Ingresa el color']) !!}
+    {!! Form::text('color', $coche->color, ['placegholder' => 'Ingresa el color']) !!}
     <br />
     <br />
     {!! Form::label('marca', 'Marca del coche') !!}
@@ -32,7 +32,9 @@
     <br />
     <br />
     {!! Form::label('tipo', 'Tipo:') !!}
-    {!! Form::select('tipo', ['1' => 'Nuevo', '0' => 'Usado'], $coche->tipo, ['placeholder' => 'Seleccione el Status']) !!}
+    {!! Form::select('tipo', ['1' => 'Nuevo', '0' => 'Usado'], $coche->tipo, [
+        'placeholder' => 'Seleccione el Status',
+    ]) !!}
     <br />
     <br />
     {!! Form::submit('Modificar Coche') !!}
