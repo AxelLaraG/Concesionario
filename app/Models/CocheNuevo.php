@@ -13,7 +13,7 @@ class CocheNuevo extends Model
 
     public function Coche()
     {
-        return $this->belongsTo('App\Models\Coche','id','coche_id');
+        return $this->belongsTo('App\Models\Coche','coche_id','id');
     }
 
 }

@@ -42,19 +42,20 @@
 
     <div class="unidades-input" @if ($coche->tipo != 1) style="display: none;" @endif>
         {!! Form::label('unidades', 'Unidades:') !!}
-        {!! Form::text('unidades', optional($coche->CocheNuevo)->unidades, [
+        {!! Form::text('unidades', optional($cocheNuevo)->unidades, [
             'placeholder' => 'Cantidad de unidades',
             'class' => 'unidades-input',
         ]) !!}
     </div>
-
+    
     <div class="kilometraje-input" @if ($coche->tipo != 0) style="display: none;" @endif>
         {!! Form::label('kilometraje', 'Kilometraje:') !!}
-        {!! Form::text('kilometraje', optional($coche->CocheUsado)->kilometraje, [
+        {!! Form::text('kilometraje', optional($cocheUsado)->kilometraje, [
             'placeholder' => 'Cantidad de kilometraje',
             'class' => 'kilometraje-input',
         ]) !!}
     </div>
+    
 
     <script>
         $(document).ready(function() {
