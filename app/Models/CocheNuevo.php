@@ -10,7 +10,6 @@ class CocheNuevo extends Model
     use HasFactory;
     protected $table = "CocheNuevo";
     protected $fillable=['unidades','coche_id','status'];
-    
 
     public function Coche()
     {

@@ -53,14 +53,14 @@ class coche_Controller extends Controller
     }
     public function destroy(string $matricula)
     {
-        //cambios de prueba
         $coche = Coche::where('matricula', $matricula)->first();
         if($coche->tipo == 1){
-            CocheNuevo::updateOrCreate(['coche_id',$coche->id],['status' => 0]);
+            CocheNuevo::where('coche_id',$coche->id)->update(['status' => 0]);
         }else{
-            CocheUsado::updateOrCreate(['coche_id',$coche->id],['status' => 0]);
+            CocheUsado::where('coche_id',$coche->id)->update(['status' => 0]);
         }
-        $coche::updateOrCreate(['matricula' => $matricula], ['status' => 0]);
+
+        $coche::where('matricula',$matricula)->update(['status' => 0]);
         
         return redirect('/Coche');
     }
