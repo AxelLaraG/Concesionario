@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\coche_Controller;
+use App\Http\Controllers\Reparaciones_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,7 @@ use App\Http\Controllers\coche_Controller;
 */
 
 Route::resource('Coche', coche_Controller::class);
+Route::resource('Reparaciones', Reparaciones_Controller::class);
 
 Route::get('/', function () {
     return view('welcome');

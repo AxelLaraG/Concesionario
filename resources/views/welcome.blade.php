@@ -48,6 +48,9 @@
                                         <li>
                                             <a href="Coche" style="color: white"><strong>Coche</strong></a>
                                         </li>
+                                        <li>
+                                            <a href="Reparaciones" style="color: white"><strong>Reparaciones</strong></a>
+                                        </li>
                                     </ol>
                                 </p>
                             </div>
