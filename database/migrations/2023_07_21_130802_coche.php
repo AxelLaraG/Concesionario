@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Coche',function(Blueprint $table){
+            $table->increments('id');
             $table->string('color',20);
-            $table->decimal('eliminado',1,0)->default(0);
             $table->string('marca',20);
-            $table->string('matricula',7);
-            $table->primary('matricula');
+            $table->string('matricula',10)->unique();
             $table->string('modelo',20);
             $table->decimal('precio',9,2);
             $table->decimal('tipo',1,0);
+            $table->integer('status');
             $table->timestamps();
         });
 

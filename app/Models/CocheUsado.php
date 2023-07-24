@@ -9,5 +9,5 @@ class CocheUsado extends Model
 {
     use HasFactory;
     protected $table='CocheUsado';
-    protected $fillable=['eliminado','kilometraje','matricula'];
+    protected $fillable=['kilometraje','coche_id','status'];
 }

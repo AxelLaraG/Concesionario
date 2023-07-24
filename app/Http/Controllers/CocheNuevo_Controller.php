@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
-use App\Models\Coche;
 use App\Models\CocheNuevo;
-use App\Models\CocheUsado;
+use App\Models\Coche;
 
-class coche_Controller extends Controller
+class CocheNuevo_Controller extends Controller
 {
     public function index()
     {
-        $coch = Coche::where('status', 1)->orderBy('precio', 'asc')->get();
+        $coch = CocheNuevo::where('status', 1)->get();
         return view('Coche.index')->with('coches', $coch);
     }
     public function create()
@@ -21,26 +19,15 @@ class coche_Controller extends Controller
     }
     public function store(Request $request)
     {
-        
-        $request->request->add(['status' => 1]);
-        //$data = $request->all();
-        //$data = $data + ['status' => 1];
         $datos_coche_general = $request->except('unidades','coche','_token');
         $coche_creado = Coche::create($datos_coche_general);
-        $request->request->add(['coche_id' => $coche_creado->id]);
-        if($request->get('tipo' == 1)){
-            $datos = $request->except('color', 'marca', 'matricula', 'modelo', 'precio', 'tipo', '_token');
-            CocheNuevo::create($datos);  
-        }else{
-            $datos = $request->except('color', 'marca', 'matricula', 'modelo', 'precio', 'tipo', '_token');
-            CocheUsado::create($datos);
-        } 
-        
+        $datos = $request->except('color', 'marca', 'matricula', 'modelo', 'precio', 'tipo', '_token');
+        CocheNuevo::create($datos + ['coche_id' => $coche_creado->id]);
         return redirect('/Coche');
     }
     public function show(string $matricula)
     {
-        $coche = Coche::where('matricula', $matricula)->first();
+        $coche = CocheNuevo::where('matricula', $matricula)->first();
         return view('Coche.read')->with('coche', $coche);
     }
     public function edit(string $matricula)

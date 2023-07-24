@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('CocheUsado', function (Blueprint $table) {
-            $table->decimal('eliminado', 1, 0)->default(0);
-            $table->integer('kilometraje',11);
-            $table->string('matricula',7);
-            $table->foreign('matricula')->references('matricula')->on('Coche');
+            $table->increments('id');
+            $table->integer('kilometraje');
+            $table->integer('coche_id')->unsigned();
+            $table->foreign('coche_id')->references('id')->on('Coche');
+            $table->integer('status');
             $table->timestamps();
         });
     }

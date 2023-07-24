@@ -9,16 +9,8 @@ class Coche extends Model
 {
     use HasFactory;
     protected $table='Coche';    
-    protected $fillable=['color','eliminado','marca','matricula','modelo','precio','tipo']; 
+    protected $fillable=['color','marca','matricula','modelo','precio','tipo','status']; 
     
 
-    public function CocheNuevo()
-    {
-        return $this->belongsTo('App\Models\CocheNuevo','matricula','matricula');
-    }
 
-    public function CocheUsado()
-    {
-        return $this->belongsTo('App\Models\CocheUsado','matricula','matricula');
-    }
 }

@@ -11,10 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('CocheNuevo', function (Blueprint $table) {
-            $table->string('matricula',7);
-            $table->foreign('matricula')->references('matricula')->on('Coche');
-            $table->decimal('eliminado', 1, 0)->default(0);
-            $table->integer('unidades',11);
+            $table->increments('id');
+            $table->integer('unidades');
+            $table->integer('coche_id')->unsigned();
+            $table->foreign('coche_id')->references('id')->on('Coche');
+            $table->integer('status');
             $table->timestamps();
         });
     }

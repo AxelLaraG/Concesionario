@@ -9,5 +9,12 @@ class CocheNuevo extends Model
 {
     use HasFactory;
     protected $table = "CocheNuevo";
-    protected $fillable=['eliminado','matricula','unidades'];
+    protected $fillable=['unidades','coche_id','status'];
+    
+
+    public function Coche()
+    {
+        return $this->belongsTo('App\Models\Coche','id','coche_id');
+    }
+
 }
