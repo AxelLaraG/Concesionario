@@ -15,7 +15,8 @@ class Reparaciones_Controller extends Controller
     }
     public function create()
     {
-        return view('Reparaciones.create');
+        $coches = Coche::where('status', 1)->get();
+        return view('Reparaciones.create')->with('coches',$coches);
     }
     public function store(Request $request)
     {
