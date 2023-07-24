@@ -21,18 +21,14 @@ class coche_Controller extends Controller
     }
     public function store(Request $request)
     {
-        
         $request->request->add(['status' => 1]);
-        //$data = $request->all();
-        //$data = $data + ['status' => 1];
         $datos_coche_general = $request->except('unidades','coche','_token');
         $coche_creado = Coche::create($datos_coche_general);
         $request->request->add(['coche_id' => $coche_creado->id]);
+        $datos = $request->except('color', 'marca', 'matricula', 'modelo', 'precio', 'tipo', '_token');
         if($request->get('tipo' == 1)){
-            $datos = $request->except('color', 'marca', 'matricula', 'modelo', 'precio', 'tipo', '_token');
             CocheNuevo::create($datos);  
         }else{
-            $datos = $request->except('color', 'marca', 'matricula', 'modelo', 'precio', 'tipo', '_token');
             CocheUsado::create($datos);
         } 
         
@@ -57,8 +53,15 @@ class coche_Controller extends Controller
     }
     public function destroy(string $matricula)
     {
+        //cambios de prueba
         $coche = Coche::where('matricula', $matricula)->first();
-        $coche::updateOrCreate(['matricula' => $matricula], ['eliminado' => 1]);
+        if($coche->tipo == 1){
+            CocheNuevo::updateOrCreate(['coche_id',$coche->id],['status' => 0]);
+        }else{
+            CocheUsado::updateOrCreate(['coche_id',$coche->id],['status' => 0]);
+        }
+        $coche::updateOrCreate(['matricula' => $matricula], ['status' => 0]);
+        
         return redirect('/Coche');
     }
 }
