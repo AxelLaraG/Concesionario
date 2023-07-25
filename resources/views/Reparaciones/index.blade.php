@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -36,4 +36,66 @@
     </table>
 </body>
 
-</html>
+</html> --}}
+
+@extends('layout.master')
+@section('contenido')
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Lista de reparaciones</h1>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Matricula</th>
+                                            <th>Fecha</th>
+                                            <th>Horas</th>
+                                            <th>Descripcion</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Matricula</th>
+                                            <th>Fecha</th>
+                                            <th>Horas</th>
+                                            <th>Descripcion</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @foreach ($reparaciones as $reparacion)
+                                        <tr>
+                                            <td>{!! $reparacion->Coche->matricula !!}</td>
+                                            <td>{!! $reparacion->fecha_reparacion !!}</td>
+                                            <td>{!! $reparacion->horas !!}</td>
+                                            <td>{!! $reparacion->descripcion !!}</td>
+                                            <td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+@endsection
