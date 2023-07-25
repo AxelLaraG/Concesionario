@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('id_cliente');
-            $table->unsignedBigInteger('id_coche');
-            $table->unsignedBigInteger('id_usuario');
+            $table->integer('id_cliente')->unsigned();
+            $table->integer('id_coche')->unsigned();
+            $table->integer('id_usuario')->unsigned();
             $table->decimal('total', 9, 2);
             $table->integer('status');
             $table->timestamps();

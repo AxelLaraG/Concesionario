@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Coche',function(Blueprint $table){
+        Schema::create('Coches',function(Blueprint $table){
             $table->increments('id');
             $table->string('color',20);
             $table->string('marca',20);
@@ -22,7 +22,6 @@ return new class extends Migration
             $table->integer('status');
             $table->timestamps();
         });
-
         
     }
 

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('id_rol');
+            $table->integer('id_rol')->unsigned();
             $table->string('nombre');
             $table->string('apPaterno');
             $table->string('apMaterno');

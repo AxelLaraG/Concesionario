@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('reparaciones_mecanicos', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('id_reparacion');
-            $table->unsignedBigInteger('id_mecanico');
+            $table->integer('id_reparacion')->unsigned();
+            $table->integer('id_mecanico')->unsigned();
             $table->decimal('tiempo', 9, 2);
             $table->integer('status');
             $table->timestamps();
