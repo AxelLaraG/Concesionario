@@ -9,6 +9,7 @@ use App\Http\Controllers\MecanicosController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VentasController;
 use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,19 +30,15 @@ Route::middleware('web')->group(function () {
         });
     }
 
-    Route::post('logeo', [LoginController::class, 'postLogeo']);
-
-    Route::resource('Coche', coche_Controller::class);
-});
+    Route::get('login', [LoginController::class, 'getLogin']);
+    Route::post('login', [LoginController::class, 'postLogeo']);
 
 
-Route::middleware('auth')->group(function () {
-
-    Route::get('home', function () {
-        return view('welcome');
-    });
+    Route::get('register', [UsuarioController::class, 'create']);
+    Route::post('register', [RegisterController::class, 'store']);
 
     //Route::resource('Coche', coche_Controller::class);
+    Route::resource('Coche', coche_Controller::class);
     Route::resource('Reparaciones', ReparacionesController::class);
     Route::resource('roles', RolesController::class);
     Route::resource('usuarios', UsuarioController::class);
@@ -51,10 +48,15 @@ Route::middleware('auth')->group(function () {
 });
 
 
+Route::middleware('auth')->group(function () {
 
+    Route::get('home', function () {
+        return view('welcome');
+    });
 
+    
+});
 
-
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

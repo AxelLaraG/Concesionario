@@ -17,7 +17,7 @@ class UsuarioController extends Controller
     public function create()
     {
         $roles = Rol::all();
-        return view('usuarios.create')->with('roles', $roles);
+        return view('auth.register')->with('roles', $roles);
     }
 
     public function store(Request $request)

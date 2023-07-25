@@ -24,17 +24,10 @@ class ReparacionesController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'coche_id' => 'required|exists:coches,id',
-            'fecha_reparacion' => 'required|date',
-            'horas' => 'required|integer|min:1',
-            'descripcion' => 'required|string',
-            'status' => 'required|integer',
-        ]);
 
-        Reparacion::create($request->all());
+        Reparacion::create($request->all() + ['status' => 1]);
 
-        return redirect()->route('reparaciones.index')->with('success', 'Reparación creada exitosamente.');
+        return redirect('/Reparaciones')->with('success', 'Reparación creada exitosamente.');
     }
 
     public function show(Reparacion $reparacion)
