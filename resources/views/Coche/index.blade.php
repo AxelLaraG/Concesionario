@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('contenido')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Lista de coches</h1>
@@ -54,25 +54,5 @@
             </div>
         </div>
     </main>
-    <script>
-        $(document).ready(function() {
-            // Captura el evento de cambio del select con clase "tipo-select"
-            $('.tipo-select').on('change', function() {
-                // Obtiene el valor seleccionado
-                var tipoSeleccionado = $(this).val();
-                // Muestra u oculta los campos de unidades y kilometraje según el valor seleccionado
-                if (tipoSeleccionado === '1') {
-                    $('.unidades-input').show();
-                    $('.kilometraje-input').hide();
-                } else if (tipoSeleccionado === '0') {
-                    $('.unidades-input').hide();
-                    $('.kilometraje-input').show();
-                } else {
-                    // Si se selecciona el placeholder (ninguna opción seleccionada), oculta ambos campos
-                    $('.unidades-input').hide();
-                    $('.kilometraje-input').hide();
-                }
-            });
-        });
-    </script>
+    
 @endsection

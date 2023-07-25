@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('contenido')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <h1>Insertar Coche</h1>
     {!! Form::open(['url' => '/Coche']) !!}
     {!! Form::label('color', 'Color del coche') !!}
