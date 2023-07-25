@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Usuarios</title>
-</head>
-<body>
+@extends('layout.master')
+@section('contenido')
+
     <h1>Listado de Usuarios</h1>
     <a href="{{ route('usuarios.create') }}">Crear Usuario</a>
     <table>
@@ -36,5 +31,4 @@
         </tr>
         @endforeach
     </table>
-</body>
-</html>
+    @endsection

@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.master')
+@section('contenido')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Editar Rol</title>
-</head>
-
-<body>
     <h1>Editar Rol</h1>
     <form action="{{ route('roles.update', $rol->id) }}" method="POST">
         @csrf
@@ -21,6 +13,4 @@
         <br><br>
         <button type="submit">Actualizar Rol</button>
     </form>
-</body>
-
-</html>
+    @endsection

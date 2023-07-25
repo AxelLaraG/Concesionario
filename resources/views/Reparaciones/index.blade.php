@@ -77,9 +77,9 @@
                                             <td>{!! $reparacion->horas !!}</td>
                                             <td>{!! $reparacion->descripcion !!}</td>
                                             <td>
-                                                <a href="{!! 'reparaciones/' . $reparacion->matricula !!}">Detalles</a>
-                                                <a href="{!! 'reparaciones/' . $reparacion->matricula . '/edit' !!}">Editar</a>
-                                                {!! Form::open(['method' => 'DELETE', 'url' => 'reparaciones/' . $reparacion->matricula]) !!}
+                                                <a href="{!! 'Reparaciones/' . $reparacion->id !!}">Detalles</a>
+                                                <a href="{!! 'Reparaciones/' . $reparacion->id . '/edit' !!}">Editar</a>
+                                                {!! Form::open(['method' => 'DELETE', 'url' => 'Reparaciones/' . $reparacion->id]) !!}
                                                 {!! Form::submit('Eliminar') !!}
                                                 {!! Form::close() !!}
                                             </td>

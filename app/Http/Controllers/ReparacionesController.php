@@ -12,14 +12,14 @@ class ReparacionesController extends Controller
     public function index()
     {
         $reparaciones = Reparacion::where('status', 1)->get();
-        return view('reparaciones.index')->with('reparaciones', $reparaciones);
+        return view('Reparaciones.index')->with('reparaciones', $reparaciones);
     }
 
     public function create()
     {
         $coches = Coche::where('status', 1)->get();
         $mecanicos = Mecanico::where('status', 1)->get();
-        return view('reparaciones.create')->with('coches', $coches)->with('mecanicos', $mecanicos);
+        return view('Reparaciones.create')->with('coches', $coches)->with('mecanicos', $mecanicos);
     }
 
     public function store(Request $request)
@@ -32,14 +32,14 @@ class ReparacionesController extends Controller
 
     public function show(Reparacion $reparacion)
     {
-        return view('reparaciones.show', compact('reparacion'));
+        return view('Reparaciones.read', compact('reparacion'));
     }
 
     public function edit(Reparacion $reparacion)
     {
         $coches = Coche::where('status', 1)->get();
         $mecanicos = Mecanico::where('status', 1)->get();
-        return view('reparaciones.edit', compact('reparacion'))->with('coches', $coches)->with('mecanicos', $mecanicos);
+        return view('Reparaciones.edit', compact('reparacion'))->with('coches', $coches)->with('mecanicos', $mecanicos);
     }
 
     public function update(Request $request, Reparacion $reparacion)
@@ -61,6 +61,6 @@ class ReparacionesController extends Controller
     {
         $reparacion->update(['status' => 0]);
 
-        return redirect()->route('reparaciones.index')->with('success', 'Reparación eliminada exitosamente.');
+        return redirect()->route('Reparaciones.index')->with('success', 'Reparación eliminada exitosamente.');
     }
 }
