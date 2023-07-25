@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apPaterno');
             $table->string('apMaterno');
+            $table->string('usuario'); 
             $table->string('password', 60); 
             $table->integer('status');
             $table->timestamps();

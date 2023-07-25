@@ -8,6 +8,7 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\MecanicosController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VentasController;
+use App\Http\Controllers\auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,15 +21,40 @@ use App\Http\Controllers\VentasController;
 |
 */
 
-Route::resource('Coche', coche_Controller::class);
-Route::resource('Reparaciones', ReparacionesController::class);
-Route::resource('roles', RolesController::class);
-Route::resource('usuarios', UsuarioController::class);
-Route::resource('mecanicos', MecanicosController::class);
-Route::resource('clientes', ClienteController::class);
-Route::resource('ventas', VentasController::class);
+Route::middleware('web')->group(function () {
 
-Route::get('/', function () {
-    return view('welcome');
+    if (!auth()->check()) {
+        Route::get('/', function () {
+            return view('welcome');
+        });
+    }
+
+    Route::post('logeo', [LoginController::class, 'postLogeo']);
+
+    Route::resource('Coche', coche_Controller::class);
 });
 
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('home', function () {
+        return view('welcome');
+    });
+
+    //Route::resource('Coche', coche_Controller::class);
+    Route::resource('Reparaciones', ReparacionesController::class);
+    Route::resource('roles', RolesController::class);
+    Route::resource('usuarios', UsuarioController::class);
+    Route::resource('mecanicos', MecanicosController::class);
+    Route::resource('clientes', ClienteController::class);
+    Route::resource('ventas', VentasController::class);
+});
+
+
+
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
