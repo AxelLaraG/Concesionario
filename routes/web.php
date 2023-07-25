@@ -3,7 +3,7 @@
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\coche_Controller;
-use App\Http\Controllers\Reparaciones_Controller;
+use App\Http\Controllers\ReparacionesController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\MecanicosController;
 use App\Http\Controllers\ClienteController;
@@ -21,7 +21,7 @@ use App\Http\Controllers\VentasController;
 */
 
 Route::resource('Coche', coche_Controller::class);
-Route::resource('Reparaciones', Reparaciones_Controller::class);
+Route::resource('Reparaciones', ReparacionesController::class);
 Route::resource('roles', RolesController::class);
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('mecanicos', MecanicosController::class);
@@ -31,3 +31,4 @@ Route::resource('ventas', VentasController::class);
 Route::get('/', function () {
     return view('welcome');
 });
+
