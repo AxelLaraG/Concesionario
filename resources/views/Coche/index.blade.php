@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -37,5 +37,69 @@
         @endforeach
     </table>
 </body>
+</html> --}}
 
-</html>
+@extends('layout.master')
+@section('contenido')
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Lista de coches</h1>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Matricula</th>
+                                            <th>Modelo</th>
+                                            <th>Marca</th>
+                                            <th>Color</th>
+                                            <th>Precio</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Matricula</th>
+                                            <th>Modelo</th>
+                                            <th>Marca</th>
+                                            <th>Color</th>
+                                            <th>Precio</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @foreach ($coches as $coch)
+                                        <tr>
+                                            <td>{!! $coch->matricula !!}</td>
+                                            <td>{!! $coch->modelo !!}</td>
+                                            <td>{!! $coch->marca !!}</td>
+                                            <td>{!! $coch->color !!}</td>
+                                            <td>{!! $coch->precio !!}</td>
+
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+@endsection
