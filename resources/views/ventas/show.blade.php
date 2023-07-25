@@ -9,5 +9,4 @@
     <h2>Total: {{ $venta->total }}</h2>
     <h2>Status: {{ $venta->status === 1 ? 'Activo' : 'Inactivo' }}</h2>
     <br />
-    <a href="{{ route('ventas.index') }}">Regresar a la lista de Ventas</a>
     @endsection

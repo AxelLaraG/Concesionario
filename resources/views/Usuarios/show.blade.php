@@ -8,5 +8,4 @@
     <h2>Apellido Materno: {{ $usuario->apMaterno }}</h2>
     <h2>Rol: {{ $usuario->rol->nombre }}</h2>
     <h2>Estado: @if($usuario->status == 1) Activo @else Inactivo @endif</h2>
-    <a href="{{ route('usuarios.index') }}">Regresar al Listado de Usuarios</a>
     @endsection
