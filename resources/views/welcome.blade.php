@@ -51,6 +51,21 @@
                                         <li>
                                             <a href="Reparaciones" style="color: white"><strong>Reparaciones</strong></a>
                                         </li>
+                                        <li>
+                                            <a href="roles" style="color: white"><strong>Roles</strong></a>
+                                        </li>
+                                        <li>
+                                            <a href="usuarios" style="color: white"><strong>Usuarios</strong></a>
+                                        </li>
+                                        <li>
+                                            <a href="ventas" style="color: white"><strong>Ventas</strong></a>
+                                        </li>
+                                        <li>
+                                            <a href="clientes" style="color: white"><strong>Clientes</strong></a>
+                                        </li>
+                                        <li>
+                                            <a href="mecanicos" style="color: white"><strong>Mecanicos</strong></a>
+                                        </li>
                                     </ol>
                                 </p>
                             </div>
