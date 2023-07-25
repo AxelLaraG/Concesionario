@@ -38,7 +38,7 @@ Route::middleware('web')->group(function () {
     Route::post('register', [RegisterController::class, 'store']);
 
     //Route::resource('Coche', coche_Controller::class);
-    Route::resource('Coche', coche_Controller::class);
+    Route::resource('Coche', coche_Controller::class);  
     Route::resource('Reparaciones', ReparacionesController::class);
     Route::resource('roles', RolesController::class);
     Route::resource('usuarios', UsuarioController::class);
@@ -60,10 +60,10 @@ Route::middleware('auth')->group(function () {
 //Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

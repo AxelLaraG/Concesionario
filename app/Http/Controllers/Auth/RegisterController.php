@@ -83,8 +83,8 @@ class RegisterController extends Controller
             'apMaterno' => $datos['apMaterno'],
             'usuario' => $datos['usuario'],
             'password' => Hash::make($datos['password']),
-            'status' => $datos['status'],
-            'tipos_usuarios_id' => $datos['tipos_usuarios_id'],
+            'status' => 1,
+            'id_rol' => $datos['id_rol'],
         ]);
         return redirect('login');
     }

@@ -1,18 +1,10 @@
 @extends('layout.master')
 @section('contenido')
-
-    <h1>Detalles del Coche</h1>
+    <h1>Detalles de la Reparacion</h1>
     <br />
-    <h2>Matricula: {!! $coche->matricula !!}</h2>
-    <h2>Modelo: {!! $coche->modelo !!}</h2>
-    <h2>Marca: {!! $coche->marca !!}</h2>
-    <h2>Color: {!! $coche->color !!}</h2>
-    <h2>Precio: {!! $coche->precio !!}</h2>
-    @if ($coche->tipo == 1)
-        <h2>Unidades: {!! $coche->CocheNuevo->unidades !!}</h2>
-    @else
-        <h2>Kilometraje: {!! $coche->CocheUsado->kilometraje !!}</h2>
-    @endif
-    <a href="{!! asset('Coche') !!}">Regresar a Coches</a>
-    
-    @endsection
+    <h2>Matricula: {!! $reparacion->Coche->matricula !!}</h2>
+    <h2>Fecha: {!! $reparacion->fecha_reparacion !!}</h2>
+    <h2>Horas: {!! $reparacion->horas !!}</h2>
+    <h2>Desc: {!! $reparacion->descripcion !!}</h2>
+    <a href="{!! asset('reparacion') !!}">Regresar a reparacions</a>
+@endsection

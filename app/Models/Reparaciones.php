@@ -13,6 +13,6 @@ class Reparaciones extends Model
     
     public function Coche()
     {
-        return $this->belongsTo('App\Models\Coche','coche_id','id');
+        return $this->belongsTo('App\Models\Coche','coche_id');
     }
 }
