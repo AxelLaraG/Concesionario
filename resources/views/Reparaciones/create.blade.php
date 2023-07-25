@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.master')
+@section('contenido')
 
-<head>
-    <meta charset="UTF-8">
-    <!-- Agrega esto en la sección <head> o al final del <body> -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Insertar Reparacion</title>
-</head>
-
-<body>
     <h1>Insertar Reparacion</h1>
     {!! Form::open(['url' => '/Reparaciones']) !!}
 
@@ -37,6 +27,4 @@
 
     {!! Form::submit('Guardar reparacion') !!}
     {!! Form::close() !!}
-</body>
-
-</html>
+    @endsection

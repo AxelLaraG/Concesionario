@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.master')
+@section('contenido')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Roles</title>
-</head>
-
-<body>
     <h1>Lista de Roles</h1>
     <a href="{{ route('roles.create') }}">Crear Rol</a>
     <table>
@@ -34,6 +26,5 @@
             </tr>
         @endforeach
     </table>
-</body>
-
-</html>
+    
+    @endsection

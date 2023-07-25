@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.master')
+@section('contenido')
 
-<head>
-    <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Editar Coche</title>
-</head>
-
-<body>
     <h1>Editar Coche</h1>
     {!! Form::open(['method' => 'PATCH', 'url' => 'Coche/' . $coche->matricula]) !!}
     {!! Form::label('color', 'Color del coche') !!}
@@ -86,6 +77,5 @@
 
     {!! Form::submit('Modificar Coche') !!}
     {!! Form::close() !!}
-</body>
-
-</html>
+    
+    @endsection

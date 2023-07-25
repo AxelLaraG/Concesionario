@@ -41,14 +41,13 @@
 @extends('layout.master')
 @section('contenido')
 
-            <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Lista de reparaciones</h1>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                
+                                <a href="Reparaciones/create">Insertar reparacion</a>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -58,6 +57,7 @@
                                             <th>Fecha</th>
                                             <th>Horas</th>
                                             <th>Descripcion</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -66,6 +66,7 @@
                                             <th>Fecha</th>
                                             <th>Horas</th>
                                             <th>Descripcion</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -76,6 +77,12 @@
                                             <td>{!! $reparacion->horas !!}</td>
                                             <td>{!! $reparacion->descripcion !!}</td>
                                             <td>
+                                                <a href="{!! 'reparaciones/' . $reparacion->matricula !!}">Detalles</a>
+                                                <a href="{!! 'reparaciones/' . $reparacion->matricula . '/edit' !!}">Editar</a>
+                                                {!! Form::open(['method' => 'DELETE', 'url' => 'reparaciones/' . $reparacion->matricula]) !!}
+                                                {!! Form::submit('Eliminar') !!}
+                                                {!! Form::close() !!}
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -84,18 +91,5 @@
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
 
 @endsection
