@@ -51,31 +51,31 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Contenido</div>
-                        <a class="nav-link" href="Coche">
+                        <a class="nav-link" href="{!! asset('/Coche') !!}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Coche
                         </a>
-                        <a class="nav-link" href="Reparaciones">
+                        <a class="nav-link" href="{!! asset('/Reparaciones') !!}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Reparaciones
                         </a>
-                        <a class="nav-link" href="roles">
+                        <a class="nav-link" href="{!! asset('/roles') !!}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Roles
                         </a>
-                        <a class="nav-link" href="usuarios">
+                        <a class="nav-link" href="{!! asset('/usuarios') !!}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Usuarios
                         </a>
-                        <a class="nav-link" href="ventas">
+                        <a class="nav-link" href="{!! asset('/ventas') !!}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Ventas
                         </a>
-                        <a class="nav-link" href="clientes">
+                        <a class="nav-link" href="{!! asset('/clientes') !!}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Clientes
                         </a>
-                        <a class="nav-link" href="mecanicos">
+                        <a class="nav-link" href="{!! asset('/mecanicos') !!}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Mecanicos
                         </a>
