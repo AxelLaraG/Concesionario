@@ -1,6 +1,5 @@
 @extends('layout.master')
 @section('contenido')
-    
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Lista de coches</h1>
@@ -54,5 +53,4 @@
             </div>
         </div>
     </main>
-    
 @endsection

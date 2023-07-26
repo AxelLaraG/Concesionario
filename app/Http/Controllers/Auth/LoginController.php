@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\Usuario as Usuarios;
 use App\Models\Rol;
 use Session;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -27,12 +28,13 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'welcome';
 
     /**
      * Create a new controller instance.
@@ -52,29 +54,27 @@ class LoginController extends Controller
     public function Login(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required',
+            'usuario' => 'required',
             'password' => 'required',
         ]);
-
-        $credentials = $request->only('username', 'password');
-
-        //$f = $this->auth->attempt($credentials, $request->has('remember'));
+        $credentials = $request->only('usuario', 'password');
         $f = Auth::attempt($credentials, $request->filled('remember'));
-        //echo "f: ".$f."<br>";
         if ($f) {
             $usr_current = Auth::user();
-            return view('home')->with('usuario', $usr_current);
+            return view('welcome')->with('usuario', $usr_current);
         }
-        return view('mensaje.msj2')->with('msg', 'USUARIO O CONTRASEÑA INCORRECTA');
+        return view('auth.login')->with('msg', 'USUARIO O CONTRASEÑA INCORRECTA');
 
     }
 
-    public function getLogout()
+    public function Logout(Request $request)
     {
         //destroy --> destruir la variable se session
-        $this->auth->logout();
-        Session::flush();
-        return view('plantilla');
+        //Auth::logout();
+        //$request->session()->invalidate();
+        //$request->session()->regenerateToken();
+        Log::debug('El método Logout ha sido alcanzado.');
+        return view('welcome')->with('var','ola');
     }
 
     public function getAlta()

@@ -30,40 +30,33 @@ Route::middleware('web')->group(function () {
         });
     }
 
-    Route::get('login', [LoginController::class, 'getLogin']);
-    Route::post('login', [LoginController::class, 'postLogeo']);
-
+    Route::get('login', [LoginController::class, 'getLogin'])->name('login');
+    Route::post('login', [LoginController::class, 'Login']);
 
     Route::get('register', [UsuarioController::class, 'create']);
     Route::post('register', [RegisterController::class, 'store']);
 
-    //Route::resource('Coche', coche_Controller::class);
-    Route::resource('Coche', coche_Controller::class);  
+
+});
+
+
+Route::middleware('auth')->group(function () {
+
+    //Route::post('logout', [LoginController::class, 'Logout']);
+    Route::post('logout', function (Request $request) {
+        Auth::logout();
+        return view('Auth.login');
+    });
+
+
+    Route::resource('Coche', coche_Controller::class);
     Route::resource('Reparaciones', ReparacionesController::class);
     Route::resource('roles', RolesController::class);
     Route::resource('usuarios', UsuarioController::class);
     Route::resource('mecanicos', MecanicosController::class);
     Route::resource('clientes', ClienteController::class);
     Route::resource('ventas', VentasController::class);
+
 });
 
-
-Route::middleware('auth')->group(function () {
-
-    Route::get('home', function () {
-        return view('welcome');
-    });
-
-    
-});
-
-//Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-//Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

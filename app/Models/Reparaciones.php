@@ -15,4 +15,9 @@ class Reparaciones extends Model
     {
         return $this->belongsTo('App\Models\Coche','coche_id');
     }
+
+    public function mecanicos()
+    {
+        return $this->belongsToMany(Mecanico::class, 'ReparacionMecanicos', 'id_reparacion', 'id_mecanico');
+    }
 }

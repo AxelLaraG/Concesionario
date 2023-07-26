@@ -30,9 +30,10 @@ class ReparacionesController extends Controller
         return redirect('/Reparaciones')->with('success', 'Reparación creada exitosamente.');
     }
 
-    public function show(Reparacion $reparacion)
+    public function show(string $id)
     {
-        return view('Reparaciones.read', compact('reparacion'));
+        $reparacion = Reparacion::find($id);
+        return view('Reparaciones.read', compact('reparacion'))->with('reparacion', $reparacion);
     }
 
     public function edit(Reparacion $reparacion)

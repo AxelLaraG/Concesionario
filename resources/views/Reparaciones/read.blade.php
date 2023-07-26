@@ -6,5 +6,5 @@
     <h2>Fecha: {!! $reparacion->fecha_reparacion !!}</h2>
     <h2>Horas: {!! $reparacion->horas !!}</h2>
     <h2>Desc: {!! $reparacion->descripcion !!}</h2>
-    <a href="{!! asset('reparacion') !!}">Regresar a reparacions</a>
+    <a href="{!! asset('Reparaciones') !!}">Regresar a reparaciones</a>
 @endsection
