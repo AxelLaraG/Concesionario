@@ -18,6 +18,6 @@ class Reparaciones extends Model
 
     public function mecanicos()
     {
-        return $this->belongsToMany(Mecanico::class, 'ReparacionMecanicos', 'id_reparacion', 'id_mecanico');
+        return $this->belongsToMany(Mecanicos::class, 'reparaciones_mecanicos', 'id_reparacion', 'id_mecanico');
     }
 }

@@ -1,27 +1,44 @@
 @extends('layout.master')
 @section('contenido')
-    <h1>Editar Reparación</h1>
-    {!! Form::model($reparacion, ['method' => 'PATCH', 'url' => 'reparaciones/' . $reparacion->id]) !!}
-    {!! Form::label('coche_id', 'ID del Coche:') !!}
-    {!! Form::select('coche_id', $coches, $reparacion->coche_id, ['placeholder' => 'Selecciona un coche', 'required']) !!}
-    <br />
-    <br />
-    {!! Form::label('fecha_reparacion', 'Fecha de Reparación:') !!}
-    {!! Form::date('fecha_reparacion', $reparacion->fecha_reparacion, ['required']) !!}
-    <br />
-    <br />
-    {!! Form::label('horas', 'Horas de Trabajo:') !!}
-    {!! Form::number('horas', $reparacion->horas, ['required', 'step' => '0.01']) !!}
-    <br />
-    <br />
-    {!! Form::label('descripcion', 'Descripción:') !!}
-    {!! Form::text('descripcion', $reparacion->descripcion, ['required']) !!}
-    <br />
-    <br />
-    {!! Form::label('status', 'Estado de la Reparación:') !!}
-    {!! Form::select('status', ['1' => 'Activa', '0' => 'Inactiva'], $reparacion->status) !!}
-    <br />
-    <br />
-    {!! Form::submit('Modificar Reparación') !!}
-    {!! Form::close() !!}
+    <div class="container">
+        <main>
+            <h1 class="mb-4">Insertar Reparacion</h1>
+            {!! Form::open(['method' => 'PATCH', 'url' => 'Reparaciones/' . $reparacion->id]) !!}
+
+            <div class="form-group">
+                {!! Form::label('fecha_reparacion', 'Fecha de reparación:') !!}
+                {!! Form::date('fecha_reparacion', $reparacion->fecha_reparacion, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('horas', 'Tiempo de reparación (horas):') !!}
+                {!! Form::text('horas', $reparacion->horas, ['class' => 'form-control', 'placeholder' => 'Ingresa tiempo de reparación']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('descripcion', 'Descripción de la reparación:') !!}
+                {!! Form::text('descripcion', $reparacion->descripcion, ['class' => 'form-control', 'placeholder' => 'Ingresa descripción']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('coche_id', 'Coche:') !!}
+                {!! Form::select('coche_id', $coches->pluck('matricula', 'id')->all(), $reparacion->coche_id, ['class' => 'form-control', 'placeholder' => 'Seleccionar']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('mecanicos', 'Mecánicos Asignados') !!}
+                <br>
+                {{-- Lista de mecánicos con checkboxes --}}
+                @foreach ($mecanicos as $mecanico)
+                    <div class="form-check">
+                        {!! Form::checkbox('mecanicos[]', $mecanico->id, in_array($mecanico->id, $reparacion->mecanicos->pluck('id')->all()), ['class' => 'form-check-input']) !!}
+                        {!! Form::label('mecanico-' . $mecanico->id, $mecanico->nombre, ['class' => 'form-check-label']) !!}
+                    </div>
+                @endforeach
+            </div>
+
+            {!! Form::submit('Guardar reparación', ['class' => 'btn btn-primary']) !!}
+            {!! Form::close() !!}
+        </main>
+    </div>
 @endsection

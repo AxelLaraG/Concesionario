@@ -67,16 +67,6 @@ class LoginController extends Controller
 
     }
 
-    public function Logout(Request $request)
-    {
-        //destroy --> destruir la variable se session
-        //Auth::logout();
-        //$request->session()->invalidate();
-        //$request->session()->regenerateToken();
-        Log::debug('El método Logout ha sido alcanzado.');
-        return view('welcome')->with('var','ola');
-    }
-
     public function getAlta()
     {
         return view('alta');

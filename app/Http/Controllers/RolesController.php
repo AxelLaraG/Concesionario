@@ -9,7 +9,7 @@ class RolesController extends Controller
 {
     public function index()
     {
-        $roles = Rol::get();
+        $roles = Rol::where('status',1)->get();
         return view('roles.index')->with('roles', $roles);
     }
 

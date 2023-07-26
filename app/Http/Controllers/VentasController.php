@@ -18,10 +18,11 @@ class VentasController extends Controller
 
     public function create()
     {
+        $usuarioSesion = auth()->user();
         $coches = Coche::where('status', 1)->get();
         $clientes = Cliente::where('status', 1)->get();
         $usuarios = Usuario::where('status', 1)->get();
-        return view('ventas.create')->with('coches', $coches)->with('clientes', $clientes)->with('usuarios', $usuarios);
+        return view('ventas.create')->with('coches', $coches)->with('clientes', $clientes)->with('usuarios', $usuarios)->with('usuarioSesion',$usuarioSesion);
     }
 
     public function store(Request $request)
@@ -45,11 +46,12 @@ class VentasController extends Controller
 
     public function edit($id)
     {
+        $usuarioSesion = auth()->user();
         $venta = Venta::findOrFail($id);
         $coches = Coche::where('status', 1)->get();
         $clientes = Cliente::where('status', 1)->get();
         $usuarios = Usuario::where('status', 1)->get();
-        return view('ventas.edit')->with('venta', $venta)->with('coches', $coches)->with('clientes', $clientes)->with('usuarios', $usuarios);
+        return view('ventas.edit')->with('venta', $venta)->with('coches', $coches)->with('clientes', $clientes)->with('usuarios', $usuarios)->with('usuarioSesion',$usuarioSesion);
     }
 
     public function update(Request $request, $id)

@@ -3,51 +3,46 @@
     <main>
         <div class="container-fluid px-4">
             <h1>Editar Coche</h1>
-            {!! Form::open(['method' => 'PATCH', 'url' => 'Coche/' . $coche->matricula]) !!}
-            {!! Form::label('color', 'Color del coche') !!}
-            {!! Form::text('color', $coche->color, ['placegholder' => 'Ingresa el color']) !!}
-            <br />
-            <br />
-            {!! Form::label('marca', 'Marca del coche') !!}
-            {!! Form::text('marca', $coche->marca, ['placegholder' => 'Ingresa la marca']) !!}
-            <br />
-            <br />
-            {!! Form::label('matricula', 'Matricula del coche') !!}
-            {!! Form::text('matricula', $coche->matricula, ['placegholder' => 'Ingresa la Matricula']) !!}
-            <br />
-            <br />
-            {!! Form::label('modelo', 'Modelo del coche') !!}
-            {!! Form::text('modelo', $coche->modelo, ['placegholder' => 'Ingresa el modelo']) !!}
-            <br />
-            <br />
-            {!! Form::label('precio', 'Precio del coche') !!}
-            {!! Form::text('precio', $coche->precio, ['placegholder' => 'Ingresa el precio']) !!}
-            <br />
-            <br />
+            {!! Form::open(['method' => 'PATCH', 'url' => 'Coche/' . $coche->matricula, 'class' => 'coche-form']) !!}
+            <div class="form-group">
+                {!! Form::label('color', 'Color del coche') !!}
+                {!! Form::text('color', $coche->color, ['class' => 'form-control', 'placeholder' => 'Ingresa el color']) !!}
+            </div>
 
-            {!! Form::label('tipo', 'Tipo:') !!}
-            {!! Form::select('tipo', ['1' => 'Nuevo', '0' => 'Usado'], $coche->tipo, [
-                'class' => 'tipo-select',
-            ]) !!}
+            <div class="form-group">
+                {!! Form::label('marca', 'Marca del coche') !!}
+                {!! Form::text('marca', $coche->marca, ['class' => 'form-control', 'placeholder' => 'Ingresa la marca']) !!}
+            </div>
 
-            <br /><br />
+            <div class="form-group">
+                {!! Form::label('matricula', 'Matricula del coche') !!}
+                {!! Form::text('matricula', $coche->matricula, ['class' => 'form-control', 'placeholder' => 'Ingresa la Matricula']) !!}
+            </div>
 
-            <div class="unidades-input" @if ($coche->tipo != 1) style="display: none;" @endif>
+            <div class="form-group">
+                {!! Form::label('modelo', 'Modelo del coche') !!}
+                {!! Form::text('modelo', $coche->modelo, ['class' => 'form-control', 'placeholder' => 'Ingresa el modelo']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('precio', 'Precio del coche') !!}
+                {!! Form::text('precio', $coche->precio, ['class' => 'form-control', 'placeholder' => 'Ingresa el precio']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('tipo', 'Tipo:') !!}
+                {!! Form::select('tipo', ['1' => 'Nuevo', '0' => 'Usado'], $coche->tipo, ['class' => 'form-control tipo-select']) !!}
+            </div>
+
+            <div class="unidades-input form-group" @if ($coche->tipo != 1) style="display: none;" @endif>
                 {!! Form::label('unidades', 'Unidades:') !!}
-                {!! Form::text('unidades', optional($cocheNuevo)->unidades, [
-                    'placeholder' => 'Cantidad de unidades',
-                    'class' => 'unidades-input',
-                ]) !!}
+                {!! Form::text('unidades', optional($cocheNuevo)->unidades, ['class' => 'form-control', 'placeholder' => 'Cantidad de unidades']) !!}
             </div>
 
-            <div class="kilometraje-input" @if ($coche->tipo != 0) style="display: none;" @endif>
+            <div class="kilometraje-input form-group" @if ($coche->tipo != 0) style="display: none;" @endif>
                 {!! Form::label('kilometraje', 'Kilometraje:') !!}
-                {!! Form::text('kilometraje', optional($cocheUsado)->kilometraje, [
-                    'placeholder' => 'Cantidad de kilometraje',
-                    'class' => 'kilometraje-input',
-                ]) !!}
+                {!! Form::text('kilometraje', optional($cocheUsado)->kilometraje, ['class' => 'form-control', 'placeholder' => 'Cantidad de kilometraje']) !!}
             </div>
-
 
             <script>
                 $(document).ready(function() {
@@ -72,11 +67,10 @@
                     });
                 });
             </script>
-
-
-            <br /><br />
-
-            {!! Form::submit('Modificar Coche') !!}
+            <br>
+            <div class="form-group">
+                {!! Form::submit('Modificar Coche', ['class' => 'btn btn-primary']) !!}
+            </div>
             {!! Form::close() !!}
         </div>
     </main>

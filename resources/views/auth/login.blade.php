@@ -17,6 +17,11 @@
                                     {{ $msg }}
                                 </div>
                             @endif
+                            @if (isset($successLoginMessage))
+                                <div class="alert alert-info">
+                                    {{ $successLoginMessage }}
+                                </div>
+                            @endif
 
                             <div class="row mb-3">
                                 <label for="email"
@@ -48,33 +53,18 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                            {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+                            
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Login') }}
+                                        {{ __('Iniciar sesion') }}
                                     </button>
-
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
+                                    
+                                    <a href="{!! asset('register') !!}" class="btn btn-secondaty"> o  &nbsp;  Registrarse</a>
                                 </div>
                             </div>
-                            <a href="{!! asset('register') !!}" class="btn btn-primary">Registrarse</a>
+
                         </form>
                     </div>
                 </div>

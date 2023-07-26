@@ -7,13 +7,14 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                <a href="usuarios/create">Crear Usuario</a>
+                
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Usuario</th>
                             <th>Nombre</th>
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
@@ -24,6 +25,7 @@
                     <tfoot>
                         <tr>
                             <th>ID</th>
+                            <th>Usuario</th>
                             <th>Nombre</th>
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
@@ -35,6 +37,7 @@
                         @foreach ($usuarios as $usuario)
                         <tr>
                             <td>{{ $usuario->id }}</td>
+                            <td>{{ $usuario->usuario }}</td>
                             <td>{{ $usuario->nombre }}</td>
                             <td>{{ $usuario->apPaterno }}</td>
                             <td>{{ $usuario->apMaterno }}</td>

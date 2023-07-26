@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reparaciones', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('coche_id')->unsigned();
-            $table->foreign('coche_id')->references('id')->on('Coches');
+            $table->foreign('coche_id')->references('id')->on('Coches')->onDelete('cascade');
             $table->string('fecha_reparacion');
             $table->decimal('horas');
             $table->string('descripcion');

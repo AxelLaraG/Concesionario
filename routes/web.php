@@ -25,9 +25,7 @@ use App\Http\Controllers\auth\RegisterController;
 Route::middleware('web')->group(function () {
 
     if (!auth()->check()) {
-        Route::get('/', function () {
-            return view('welcome');
-        });
+        Route::get('/', [LoginController::class, 'getLogin']);
     }
 
     Route::get('login', [LoginController::class, 'getLogin'])->name('login');

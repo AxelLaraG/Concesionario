@@ -18,4 +18,10 @@ class Mecanicos extends Model
         'salario',
         'status',
     ];
+
+    public function reparaciones()
+    {
+        return $this->belongsToMany(Reparaciones::class, 'reparaciones_mecanicos', 'id_mecanico', 'id_reparacion')
+                    ->withTimestamps();
+    }
 }

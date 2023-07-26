@@ -36,12 +36,12 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Login</a></li>
+                    <li></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
                     <li>
-                        <form action="logout" method="POST">
+                        <form action="{!! asset('logout') !!}" method="POST">
                             @csrf
                             <button type="submit"
                                 style="margin-left: 15px; border: 0px; background-color: white;">Logout</button>
@@ -59,7 +59,7 @@
                         <div class="sb-sidenav-menu-heading">Contenido</div>
                         <a class="nav-link" href="{!! asset('/Coche') !!}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Coche
+                            Coches
                         </a>
                         <a class="nav-link" href="{!! asset('/Reparaciones') !!}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
+                    <div class="small"></div>
                     @if (Auth::check())
                         <p>Bienvenido, {{ Auth::user()->nombre }}</p>
                     @endif

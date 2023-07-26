@@ -3,46 +3,45 @@
     <main>
         <div class="container-fluid px-4">
             <h1>Insertar Coche</h1>
-            {!! Form::open(['url' => '/Coche']) !!}
-            {!! Form::label('color', 'Color del coche') !!}
-            {!! Form::text('color', null, ['placegholder' => 'Ingresa el color']) !!}
-            <br /><br />
-
-            {!! Form::label('marca', 'Marca del coche') !!}
-            {!! Form::text('marca', null, ['placegholder' => 'Ingresa la marca']) !!}
-
-            <br /><br />
-
-            {!! Form::label('matricula', 'Matricula del coche') !!}
-            {!! Form::text('matricula', null, ['placegholder' => 'Ingresa la Matricula']) !!}
-
-            <br /><br />
-
-            {!! Form::label('modelo', 'Modelo del coche') !!}
-            {!! Form::text('modelo', null, ['placegholder' => 'Ingresa el modelo']) !!}
-
-            <br /><br />
-
-            {!! Form::label('precio', 'Precio del coche') !!}
-            {!! Form::text('precio', null, ['placegholder' => 'Ingresa el precio']) !!}
-
-            <br /><br />
-
-            {!! Form::label('tipo', 'Tipo:') !!}
-            {!! Form::select('tipo', ['1' => 'Nuevo', '0' => 'Usado'], '1', [
-                'class' => 'tipo-select',
-            ]) !!}
-
-            <br /><br />
-
-            <div class="unidades-input">
-                {!! Form::label('unidades', 'Unidades:') !!}
-                {!! Form::text('unidades', null, ['placeholder' => 'Cantidad de unidades']) !!}
+            {!! Form::open(['url' => '/Coche', 'class' => 'coche-form']) !!}
+            <div class="form-group">
+                {!! Form::label('color', 'Color del coche') !!}
+                {!! Form::text('color', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el color']) !!}
             </div>
 
-            <div class="kilometraje-input" style="display: none;">
+            <div class="form-group">
+                {!! Form::label('marca', 'Marca del coche') !!}
+                {!! Form::text('marca', null, ['class' => 'form-control', 'placeholder' => 'Ingresa la marca']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('matricula', 'Matricula del coche') !!}
+                {!! Form::text('matricula', null, ['class' => 'form-control', 'placeholder' => 'Ingresa la Matricula']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('modelo', 'Modelo del coche') !!}
+                {!! Form::text('modelo', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el modelo']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('precio', 'Precio del coche') !!}
+                {!! Form::text('precio', null, ['class' => 'form-control', 'placeholder' => 'Ingresa el precio']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('tipo', 'Tipo:') !!}
+                {!! Form::select('tipo', ['1' => 'Nuevo', '0' => 'Usado'], '1', ['class' => 'form-control tipo-select']) !!}
+            </div>
+
+            <div class="unidades-input form-group">
+                {!! Form::label('unidades', 'Unidades:') !!}
+                {!! Form::text('unidades', null, ['class' => 'form-control', 'placeholder' => 'Cantidad de unidades']) !!}
+            </div>
+
+            <div class="kilometraje-input form-group" style="display: none;">
                 {!! Form::label('kilometraje', 'Kilometraje:') !!}
-                {!! Form::text('kilometraje', null, ['placeholder' => 'Cantidad de kilometraje']) !!}
+                {!! Form::text('kilometraje', null, ['class' => 'form-control', 'placeholder' => 'Cantidad de kilometraje']) !!}
             </div>
 
             <script>
@@ -66,12 +65,12 @@
                     });
                 });
             </script>
-
-
-            <br /><br />
-
-            {!! Form::submit('Guardar Coche') !!}
+            <br>
+            <div class="form-group">
+                {!! Form::submit('Guardar Coche', ['class' => 'btn btn-primary']) !!}
+            </div>
             {!! Form::close() !!}
         </div>
     </main>
 @endsection
+

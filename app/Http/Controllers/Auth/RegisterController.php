@@ -86,6 +86,6 @@ class RegisterController extends Controller
             'status' => 1,
             'id_rol' => $datos['id_rol'],
         ]);
-        return redirect('login');
+        return view('Auth.login')->with('successLoginMessage','Registro Exitoso, Ya puedes iniciar sesion');
     }
 }

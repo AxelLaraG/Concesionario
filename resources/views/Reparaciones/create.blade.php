@@ -1,46 +1,47 @@
 @extends('layout.master')
 @section('contenido')
-    <main>
-        <h1>Insertar Reparacion</h1>
-        {!! Form::open(['url' => '/Reparaciones']) !!}
+    <div class="container">
+        <main>
+            <h1 class="mb-4">Insertar Reparacion</h1>
+            {!! Form::open(['url' => '/Reparaciones']) !!}
 
-        {!! Form::label('fecha_reparacion', 'Fecha de reparacion:') !!}
-        {!! Form::text('fecha_reparacion', null, ['placegholder' => 'Ingresa fecha de reparacion']) !!}
-        <br /><br />
+            <div class="form-group">
+                {!! Form::label('fecha_reparacion', 'Fecha de reparación:') !!}
+                {!! Form::date('fecha_reparacion', null, ['class' => 'form-control']) !!}
+            </div>
 
-        {!! Form::label('horas', 'Tiempo de reparacion:') !!}
-        {!! Form::text('horas', null, ['placegholder' => 'Ingresa tiempo de reparacion (horas)']) !!}
+            <div class="form-group">
+                {!! Form::label('horas', 'Tiempo de reparación (horas):') !!}
+                {!! Form::text('horas', null, ['class' => 'form-control', 'placeholder' => 'Ingresa tiempo de reparación']) !!}
+            </div>
 
-        <br /><br />
+            <div class="form-group">
+                {!! Form::label('descripcion', 'Descripción de la reparación:') !!}
+                {!! Form::text('descripcion', null, ['class' => 'form-control', 'placeholder' => 'Ingresa descripción']) !!}
+            </div>
 
-        {!! Form::label('descripcion', 'Descripcion de la reparacion:') !!}
-        {!! Form::text('descripcion', null, ['placegholder' => 'Ingresa descripcion']) !!}
+            <div class="form-group">
+                {!! Form::label('coche_id', 'Coche:') !!}
+                {!! Form::select('coche_id', $coches->pluck('matricula', 'id')->all(), null, [
+                    'class' => 'form-control',
+                    'placeholder' => 'Seleccionar',
+                ]) !!}
+            </div>
 
-        <br /><br />
-
-        {!! Form::label('coche_id', 'Coche:') !!}
-        {!! Form::select('coche_id', $coches->pluck('matricula', 'id')->all(), null, [
-            'placeholder' => 'seleccionar',
-        ]) !!}
-
-        <br /><br />
-
-        <!-- ... Otros elementos del cuerpo ... -->
-        <div class="form-group">
-            {!! Form::label('mecanicos', 'Mecánicos Asignados') !!}
+            <div class="form-group">
+                {!! Form::label('mecanicos', 'Mecánicos Asignados') !!}
+                <br>
+                {{-- Lista de mecánicos con checkboxes --}}
+                @foreach ($mecanicos as $mecanico)
+                    <div class="form-check">
+                        {!! Form::checkbox('mecanicos[]', $mecanico->id, false, ['class' => 'form-check-input']) !!}
+                        {!! Form::label('mecanico-' . $mecanico->id, $mecanico->nombre, ['class' => 'form-check-label']) !!}
+                    </div>
+                @endforeach
+            </div>
             <br>
-            {{-- Lista de mecánicos con checkboxes --}}
-            @foreach ($mecanicos as $mecanico)
-                <div class="form-check">
-                    {!! Form::checkbox('mecanicos[]', $mecanico->id, false, ['class' => 'form-check-input']) !!}
-                    {!! Form::label('mecanico-' . $mecanico->id, $mecanico->nombre, ['class' => 'form-check-label']) !!}
-                </div>
-            @endforeach
-        </div>
-
-
-        {!! Form::submit('Guardar reparacion') !!}
-        {!! Form::close() !!}
-
-    </main>
+            {!! Form::submit('Guardar reparación', ['class' => 'btn btn-primary']) !!}
+            {!! Form::close() !!}
+        </main>
+    </div>
 @endsection
